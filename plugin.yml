@@ -1,0 +1,6 @@
+name: FlowingPlugin
+author: PEMapModder
+version: 1.0.0
+api: [1.5.0]
+main: flowingplugin\Registrator
+load: STARTUP
