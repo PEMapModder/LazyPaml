@@ -4,3 +4,20 @@ version: 1.0.0
 api: [1.5.0]
 main: flowingplugin\Registrator
 load: STARTUP
+permissions:
+  flowingplugin:
+    description: parent node for all FlowingPlugin permissions. You are not recommended to modify me and my children nodes.
+    default: false
+    children:
+      flowingplugin.false:
+        description: false permission node for FlowingPlugins. You are not recommended to modify me.
+        default: false
+      flowingplugin.true:
+        description: true permission node for FlowingPlugins. You are not recommended to modify me.
+        default: true
+      flowingplugin.op:
+        description: op-only permission node for FlowingPlugins. You are not recommended to modify me.
+        default: op
+      flowingplugin.notop:
+        description: non-op-only permission node for FlowingPlugins. You are not recommended to modify me.
+        default: notop
