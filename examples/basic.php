@@ -16,12 +16,12 @@ entry=ExamplePluginEntry
 function ExamplePluginEntry($plugin){
 	$plugin
 		-> command("example", perm_true)
-			-> argument("argument 1")
-			-> argument("argument 2", "default")
+			-> argument ("argument 1")
+			-> argument ("argument 2", "default")
 			-> onRun()
-				-> send()
-					-> line("something")
-					-> line("something 2", true)
+				-> send ()
+					-> line ("something")
+					-> line ("something 2", true)
 			-> done()
 	;
 }
