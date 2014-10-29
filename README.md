@@ -1,4 +1,3 @@
 LazyPaml
 =============
-
-Human-readable plugins
+**Lazy**guys, **P**HP **a**in't **m**arkup **l**anguage.
