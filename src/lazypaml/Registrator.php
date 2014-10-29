@@ -27,7 +27,7 @@ class Registrator extends PluginBase implements PluginLoader{
 		if(!(($desc = new FDescription($this, $src))) instanceof FDescription){
 			return null;
 		}
-		$this->getLogger()->info("Loading FlowinPlugin " . $desc->getFullName() . "...");
+		$this->getLogger()->info("Loading LazyPaml " . $desc->getFullName() . "...");
 		$dataFolder = dirname($file) . DIRECTORY_SEPARATOR . $desc->getName();
 		if(file_exists($dataFolder) and !is_dir($dataFolder)){
 			$this->getLogger()->critical("Cannot load LazyPaml " . $desc->getName() . ": data folder is occupied by a non-folder.");
