@@ -1,14 +1,14 @@
 <?php
 
-namespace flowingplugin\api;
+namespace lazypaml\api;
 
-use flowingplugin\FPlugin;
+use lazypaml\FPlugin;
 use pocketmine\command\PluginCommand;
 
-define("perm_true", "flowingplugin.true", true);
-define("perm_false", "flowingplugin.false", true);
-define("perm_op", "flowingplugin.op", true);
-define("perm_notop", "flowingplugin.notop", true);
+define("perm_true", "lazypaml.true", true);
+define("perm_false", "lazypaml.false", true);
+define("perm_op", "lazypaml.op", true);
+define("perm_notop", "lazypaml.notop", true);
 
 class Flow{
 	private $plugin;

@@ -1,23 +1,23 @@
-name: FlowingPlugin
+name: LazyPaml
 author: PEMapModder
 version: 1.0.0
 api: [1.5.0]
-main: flowingplugin\Registrator
+main: lazypaml\Registrator
 load: STARTUP
 permissions:
-  flowingplugin:
-    description: parent node for all FlowingPlugin permissions. You are not recommended to modify me and my children nodes.
+  lazypaml:
+    description: parent node for all LazyPaml permissions. You are not recommended to modify me and my children nodes.
     default: false
     children:
-      flowingplugin.false:
-        description: false permission node for FlowingPlugins. You are not recommended to modify me.
+      lazypaml.false:
+        description: false permission node for LazyPamls. You are not recommended to modify me.
         default: false
-      flowingplugin.true:
-        description: true permission node for FlowingPlugins. You are not recommended to modify me.
+      lazypaml.true:
+        description: true permission node for LazyPamls. You are not recommended to modify me.
         default: true
-      flowingplugin.op:
-        description: op-only permission node for FlowingPlugins. You are not recommended to modify me.
+      lazypaml.op:
+        description: op-only permission node for LazyPamls. You are not recommended to modify me.
         default: op
-      flowingplugin.notop:
-        description: non-op-only permission node for FlowingPlugins. You are not recommended to modify me.
+      lazypaml.notop:
+        description: non-op-only permission node for LazyPamls. You are not recommended to modify me.
         default: notop

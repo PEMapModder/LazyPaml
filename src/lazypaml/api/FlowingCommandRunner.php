@@ -1,6 +1,6 @@
 <?php
 
-namespace flowingplugin\api;
+namespace lazypaml\api;
 
 class FlowingCommandRunner implements ResultableParent{
 	/** @var FlowingCommandExecutor */

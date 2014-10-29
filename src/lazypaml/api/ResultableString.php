@@ -1,6 +1,6 @@
 <?php
 
-namespace flowingplugin\api;
+namespace lazypaml\api;
 
 class ResultableString extends Resultable{
 	public function value(array $args){

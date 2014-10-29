@@ -1,6 +1,6 @@
 <?php
 
-namespace flowingplugin;
+namespace lazypaml;
 
 use pocketmine\plugin\Plugin;
 use pocketmine\plugin\PluginBase;
@@ -30,7 +30,7 @@ class Registrator extends PluginBase implements PluginLoader{
 		$this->getLogger()->info("Loading FlowinPlugin " . $desc->getFullName() . "...");
 		$dataFolder = dirname($file) . DIRECTORY_SEPARATOR . $desc->getName();
 		if(file_exists($dataFolder) and !is_dir($dataFolder)){
-			$this->getLogger()->critical("Cannot load FlowingPlugin " . $desc->getName() . ": data folder is occupied by a non-folder.");
+			$this->getLogger()->critical("Cannot load LazyPaml " . $desc->getName() . ": data folder is occupied by a non-folder.");
 			return null;
 		}
 		return new FPlugin($this, $file, $desc, $dataFolder);

@@ -1,4 +1,4 @@
-FlowingPlugin
+LazyPaml
 =============
 
 Human-readable plugins

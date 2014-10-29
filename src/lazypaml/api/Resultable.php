@@ -1,6 +1,6 @@
 <?php
 
-namespace flowingplugin\api;
+namespace lazypaml\api;
 
 abstract class Resultable{
 	private $parent;

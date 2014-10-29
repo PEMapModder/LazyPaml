@@ -1,6 +1,6 @@
 <?php
 
-namespace flowingplugin;
+namespace lazypaml;
 
 use pocketmine\plugin\PluginDescription;
 use pocketmine\plugin\PluginLoadOrder;
@@ -10,7 +10,7 @@ class FDescription extends PluginDescription{
 	private $data;
 	public function __construct(Registrator $main, $src){
 		$this->main = $main;
-		if(!preg_match_all("/__FlowingPlugin__[\r\n]+([a-zA-Z0-9_\-)=.+[\r\n]+)+/m", $src, $matches)){
+		if(!preg_match_all("/__LazyPaml__[\r\n]+([a-zA-Z0-9_\-)=.+[\r\n]+)+/m", $src, $matches)){
 			throw new \RuntimeException("Cannot find description");
 		}
 		$properties = preg_split("/[\r\n]+/m", $matches[1][0]);
@@ -58,7 +58,7 @@ class FDescription extends PluginDescription{
 		return isset($this->data["load_before"]) ? explode(",", $this->data["load_before"]):[];
 	}
 	public function getMain(){
-		return "flowingplugin\\FPlugin";
+		return "lazypaml\\FPlugin";
 	}
 	public function getOrder(){
 		$str = isset($this->data["load"]) ? $this->data["load"]:"POSTWORLD";

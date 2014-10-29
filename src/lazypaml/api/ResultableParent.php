@@ -1,6 +1,6 @@
 <?php
 
-namespace flowingplugin\api;
+namespace lazypaml\api;
 
 interface ResultableParent{
 	public function onResulted(Resultable $result);

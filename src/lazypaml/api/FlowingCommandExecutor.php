@@ -1,8 +1,8 @@
 <?php
 
-namespace flowingplugin\api;
+namespace lazypaml\api;
 
-use flowingplugin\FPlugin;
+use lazypaml\FPlugin;
 use pocketmine\command\Command;
 use pocketmine\command\CommandExecutor;
 use pocketmine\command\CommandSender;

@@ -1,8 +1,8 @@
 <?php
 
 /*
-__FlowingPlugin__
-description=Example FlowingPlugin
+__LazyPaml__
+description=Example LazyPaml
 name=ExamplePlugin
 version=1.0
 api=TODO
@@ -11,7 +11,7 @@ entry=ExamplePluginEntry
 
 // note: these three lines are not necessary.
 /**
- * @param \flowingplugin\api\Flow $plugin
+ * @param \lazypaml\api\Flow $plugin
  */
 function ExamplePluginEntry($plugin){
 	$plugin
