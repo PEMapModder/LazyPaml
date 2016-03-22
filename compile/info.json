@@ -1,0 +1,14 @@
+{
+    "name": "LazyPaml",
+    "author": "PEMapModder",
+    "main": "LazyPaml\\LazyPaml",
+    "api": [
+        "2.0.0"
+    ],
+    "version": {
+        "major": 2,
+        "minor": 0
+    },
+    "nextBuild": 34,
+    "load": "STARTUP"
+}
