@@ -34,6 +34,7 @@ class LazyPaml extends PluginBase implements Listener{
 
 	public function onLoad(){
 		self::$NAME = $this->getName();
+		assert(in_array($this->getServer()->getName(), ["PocketMine-MP", "PocketMine-Soft"]), "Haters gonna hate");
 	}
 
 	public function onEnable(){
