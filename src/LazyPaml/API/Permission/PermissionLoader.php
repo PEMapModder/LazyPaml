@@ -17,7 +17,7 @@ namespace LazyPaml\API\Permission;
 
 use LazyPaml\API\LazyPamlApi;
 
-class PermissionLoader implements PermissionEntryParent{
+class PermissionLoader{
 	/** @var LazyPamlApi|PermissionEntry $Thats_all */
 	public $Thats_all;
 
@@ -34,7 +34,6 @@ class PermissionLoader implements PermissionEntryParent{
 	 */
 	public function __construct($api){
 		$this->Thats_all = $api;
-		$this->current = new PermissionEntry($this);
 	}
 
 	/**
@@ -43,6 +42,7 @@ class PermissionLoader implements PermissionEntryParent{
 	 * @return PermissionEntry
 	 */
 	public function Name(string $name) : PermissionEntry{
+		$this->nextCurrent();
 		return $this->current->Name($name);
 	}
 
@@ -55,15 +55,25 @@ class PermissionLoader implements PermissionEntryParent{
 	}
 
 	public function __get($k){
-		if($k === "Thats_all" and $this->Thats_all instanceof LazyPamlApi){
-			$this->Thats_all->registerPermissions();
+		echo $k, PHP_EOL;
+		if($k === "Thats_all"){
+			$this->Thats_all();
 		}
 
 		return $this->{$k};
 	}
 
+	public function Thats_all(){
+		if($this->Thats_all instanceof LazyPamlApi){
+			$this->Thats_all->registerPermissions();
+		}
+		return $this->Thats_all;
+	}
+
 	public function nextCurrent(){
-		$this->done[] = $this->current;
+		if(isset($this->current) and $this->current->hasName()){
+			$this->done[] = $this->current;
+		}
 		$this->current = new PermissionEntry($this);
 	}
 
@@ -75,9 +85,7 @@ class PermissionLoader implements PermissionEntryParent{
 	}
 
 	public function toArray(){
-		if($this->current->hasName()){
-			$this->done[] = $this->current;
-		}
+		$this->nextCurrent();
 		$this->current = null;
 		$out = [];
 		foreach($this->done as $done){

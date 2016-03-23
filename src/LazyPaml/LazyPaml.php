@@ -15,10 +15,14 @@
 
 namespace LazyPaml;
 
+use pocketmine\event\Listener;
+use pocketmine\event\player\PlayerCommandPreprocessEvent;
+use pocketmine\event\server\ServerCommandEvent;
 use pocketmine\plugin\PluginBase;
 use pocketmine\plugin\PluginLoadOrder;
+use pocketmine\utils\TextFormat;
 
-class LazyPaml extends PluginBase{
+class LazyPaml extends PluginBase implements Listener{
 	/** @var string $NAME */
 	private static $NAME;
 	/** @var PamlLoader $pamlLoader */
@@ -36,6 +40,25 @@ class LazyPaml extends PluginBase{
 		$this->getServer()->getPluginManager()->registerInterface(PamlLoader::class);
 		$this->getServer()->getPluginManager()->loadPlugins($this->getServer()->getPluginPath(), [PamlLoader::class]);
 		$this->getServer()->enablePlugins(PluginLoadOrder::STARTUP);
+		$this->getServer()->getPluginManager()->registerEvents($this, $this);
+	}
+
+	/**
+	 * @param PlayerCommandPreprocessEvent $event
+	 * @priority MONITOR
+	 * @ignoreCancelled true
+	 */
+	public function onCmd(PlayerCommandPreprocessEvent $event){
+		if($event->getMessage() === "/reload"){
+			$event->getPlayer()->sendMessage(TextFormat::YELLOW . "Warning: LazyPaml plugins will NOT be loaded after reloading!");
+			$this->getLogger()->warning("Warning: LazyPaml plugins will not be loaded after reloading!");
+		}
+	}
+
+	public function onConsole(ServerCommandEvent $event){
+		if($event->getCommand() === "reload"){
+			$event->getSender()->sendMessage(TextFormat::YELLOW . "Warning: LazyPaml plugins will not be loaded after reloading!");
+		}
 	}
 
 	public function setPamlLoader(PamlLoader $pamlLoader){

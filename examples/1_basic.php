@@ -24,9 +24,9 @@ $LazyPaml
 				-> Name ("basic.child")
 					-> Description ("Child permission")
 					-> Done
-			-> Thats_all
+			-> Thats_all()
 		-> Done
-	-> Thats_all
+	-> Thats_all()
 ;
 
 

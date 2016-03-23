@@ -141,13 +141,13 @@ class LazyPamlApi{
 		return $this->api;
 	}
 
-	public function getDescription(LazyPaml $main = null) : PluginDescription{
+	public function getDescription(LazyPaml $main = null){
 		if(!isset($this->description)){
 			if(!isset($this->name, $this->version, $this->api)){
 				return null;
 			}
 			assert($main !== null);
-			$desc = new PluginDescription([
+			$manifest = [
 				"name" => $this->name,
 				"version" => $this->version,
 				"api" => $main->getServer()->getApiVersion(),
@@ -163,7 +163,10 @@ class LazyPamlApi{
 				"author" => $this->author,
 				"authors" => $this->authors,
 				"permissions" => $this->permissionsArray,
-			]);
+			];
+			echo yaml_emit($manifest);
+			$desc = new PluginDescription($manifest);
+
 			return $this->description = $desc;
 		}
 		return $this->description;

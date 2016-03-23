@@ -130,3 +130,5 @@ $phar->stopBuffering();
 if(is_file("priv/postCompile.php")){
 	include_once "priv/postCompile.php";
 }
+
+echo "Completed compiling version $VERSION", PHP_EOL;

@@ -15,7 +15,7 @@
 
 namespace LazyPaml\API\Permission;
 
-class PermissionEntry implements PermissionEntryParent{
+class PermissionEntry{
 	private $name;
 	private $desc = "";
 	private $default = "op";
@@ -57,14 +57,7 @@ class PermissionEntry implements PermissionEntryParent{
 	 */
 	public function Default_targets(string $default) : PermissionEntry{
 		$this->default = $default;
-	}
-
-	public function __get($k){
-		if($k === "Done"){
-			$this->Done->nextCurrent();
-		}
-
-		return $this->{$k};
+		return $this;
 	}
 
 	public function hasName() : bool{
@@ -85,7 +78,6 @@ class PermissionEntry implements PermissionEntryParent{
 
 	public function toArray(){
 		return [
-			"name" => $this->name,
 			"description" => $this->desc,
 			"default" => $this->default,
 			"children" => $this->Children->toArray(),

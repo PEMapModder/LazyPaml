@@ -41,6 +41,7 @@ class PamlLoader implements PluginLoader{
 
 	public function getPluginDescription($file){
 		return $this->parseFile($file)->getDescription($this->main);
+
 	}
 
 	public function getPluginFilters(){
